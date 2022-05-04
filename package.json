@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:producer": "node ./producer/index.js",
+    "start:consumer": "node ./consumer/index.js"
   },
   "author": "Dinusha Dilshan",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "avsc": "^5.7.4",
+    "kafkajs": "^1.16.0",
+    "node-rdkafka": "^2.12.0"
+  }
 }
