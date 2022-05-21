@@ -6,7 +6,9 @@ const stream = Kafka.Producer.createWriteStream({
     'metadata.broker.list': 'localhost:9092'
     /*after this, there is a second parameter to define some options (not defined here) and third parameter to 
     define the topics*/
-}, {}, { topic: 'test_kafka_topic_1' });
+}, {
+    //options
+}, { topic: 'test_kafka_topic_1' });
 
 function queueMessage() {
     //allocated a buffer for the string "hi"
