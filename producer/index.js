@@ -1,5 +1,6 @@
 console.log("producer");
 import Kafka from "node-rdkafka"
+import eventType from "../eventType";
 
 const stream = Kafka.Producer.createWriteStream({
     //Takes an object to define the broker

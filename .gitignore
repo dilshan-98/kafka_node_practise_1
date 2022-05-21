@@ -1,3 +1,5 @@
 /node_modules
 
+*.tmp
+*.docx
 kafka_node_practise_1.docx

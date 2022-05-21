@@ -1,5 +1,6 @@
 console.log("consumer");
 import Kafka from "node-rdkafka";
+import eventType from "../eventType";
 
 const consumer = Kafka.KafkaConsumer({
     'group.id': 'kafka_1',
