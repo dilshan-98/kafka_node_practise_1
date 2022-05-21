@@ -1,6 +1,6 @@
 console.log("consumer");
 import Kafka from "node-rdkafka";
-import eventType from "../eventType";
+import eventType from "../eventType.js";
 
 const consumer = Kafka.KafkaConsumer({
     'group.id': 'kafka_1',
@@ -17,7 +17,10 @@ consumer.on("ready", () => {
     consumer.consume();
 }).on("data", (data) => {
     //this takes the actual message from event stream 
-    console.log(`Message: ${data.value}`);
+    //console.log(`Message: ${data.value}`);
+
+    //deserializing the data from event streaming and show the actual value
+    console.log(`Received Message: ${eventType.fromBuffer(data.value)}`)
 })
 
 // const consumer = Kafka.KafkaConsumer({

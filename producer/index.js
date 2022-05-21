@@ -1,6 +1,6 @@
 console.log("producer");
 import Kafka from "node-rdkafka"
-import eventType from "../eventType";
+import eventType from "../eventType.js";
 
 const stream = Kafka.Producer.createWriteStream({
     //Takes an object to define the broker
@@ -12,8 +12,16 @@ const stream = Kafka.Producer.createWriteStream({
 }, { topic: 'test_kafka_topic_1' });
 
 function queueMessage() {
+    /*
     //allocated a buffer for the string "hi"
     const success = stream.write(Buffer.from("Hi"));
+    */
+
+    //defining the event (refer avsc documentation)
+    const event = { category: 'DOG', sound: 'Bark' };
+
+    //using the buffer method from avsc instead of default buffer
+    const success = stream.write(eventType.toBuffer(event));
 
     if (success) {
         console.log("Message sent")
